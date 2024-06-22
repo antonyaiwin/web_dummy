@@ -125,13 +125,17 @@
   <script>
     window.addEventListener('load', function (ev) {
       // Download main.dart.js
+	    alert('first');
       _flutter.loader.loadEntrypoint({
         serviceWorker: {
           serviceWorkerVersion: serviceWorkerVersion,
         },
         onEntrypointLoaded: function (engineInitializer) {
+		  alert('second');
           engineInitializer.initializeEngine().then(function (appRunner) {
+		    alert('third');
             appRunner.runApp();
+		    alert('fourth');
           });
         }
       });
